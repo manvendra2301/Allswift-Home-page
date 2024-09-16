@@ -17,9 +17,11 @@ export const Middle = () => {
     group: "",
   };
 
+  const {items} = obj1;
+
 
   return (
-    <div>
+    
       <main className="main-wrapper">
         <section className="hero-section-two section-bg-gradient-1">
           <div className="w-layout-blockcontainer main-container w-container">
@@ -59,7 +61,7 @@ export const Middle = () => {
                         data-w-id="fbede60b-f1d0-1ffb-53f6-212d8e8cc756"
                         loading="lazy"
                         src="https://cdn.prod.website-files.com/6509176963fe4ef34ed8b7e1/6509661249c469f7ad2c1460_Trusted%20Partner%20image%202%20.png"
-                        style={{opacity:0}}
+                        style={{ opacity: 0 }}
                       />
                       <img
                         alt="Trusted Partner"
@@ -67,7 +69,7 @@ export const Middle = () => {
                         data-w-id="c37cb4b1-daa3-cfd0-6106-70195e1c7bb4"
                         loading="lazy"
                         src="https://cdn.prod.website-files.com/6509176963fe4ef34ed8b7e1/650966120d772200a8914c86_Trusted%20Partner%20image%203%20.png"
-                        style={{opacity:0}}
+                        style={{ opacity: 0 }}
                       />
                       <div className="trusted-partner-count-block">
                         <div className="trusted-partner-count-text">17K+</div>
@@ -105,7 +107,7 @@ export const Middle = () => {
                   sizes="(max-width: 479px) 100vw, (max-width: 767px) 94vw, (max-width: 991px) 549.984375px, (max-width: 1919px) 45vw, 855px"
                   src="https://cdn.prod.website-files.com/6509176963fe4ef34ed8b7e1/65110b696940e4f3ca55c12d_Hero%20Image%20Home%202.jpg"
                   srcSet="https://assets-global.website-files.com/6509176963fe4ef34ed8b7e1/65110b696940e4f3ca55c12d_Hero%20Image%20Home%202-p-500.jpg 500w, https://assets-global.website-files.com/6509176963fe4ef34ed8b7e1/65110b696940e4f3ca55c12d_Hero%20Image%20Home%202-p-800.jpg 800w, https://assets-global.website-files.com/6509176963fe4ef34ed8b7e1/65110b696940e4f3ca55c12d_Hero%20Image%20Home%202.jpg 854w"
-                  style={{opacity:0}}
+                  style={{ opacity: 0 }}
                 />
                 <img
                   alt="Hero Shape Image"
@@ -139,13 +141,13 @@ export const Middle = () => {
                     data-w-id="4e0d1804-9792-2d75-f526-331dfd6f2dde"
                     loading="lazy"
                     src="https://cdn.prod.website-files.com/6509176963fe4ef34ed8b7e1/65112028b082e8d7caffaa1c_About%20image%201.jpg"
-                    style={{opacity:0}}
+                    style={{ opacity: 0 }}
                   />
                 </div>
                 <div
                   className="about-tab-wrapper"
                   data-w-id="4c719987-1455-a745-7ee2-e369a22d3b64"
-                  style={{opacity:0}}
+                  style={{ opacity: 0 }}
                 >
                   <div
                     className="about-tabs w-tabs"
@@ -304,7 +306,7 @@ export const Middle = () => {
                 <div
                   className="badge"
                   data-w-id="5a3b0609-f5ff-a598-1807-c46e47124ed0"
-                  style={{opacity:0}}
+                  style={{ opacity: 0 }}
                 >
                   About
                   <span className="text-medium">UBIQ</span>
@@ -313,7 +315,7 @@ export const Middle = () => {
                   <h2
                     className="section-heading"
                     data-w-id="5a3b0609-f5ff-a598-1807-c46e47124ed5"
-                    style={{opacity:0}}
+                    style={{ opacity: 0 }}
                   >
                     Exclusive Technology to Provide IT Solutions
                   </h2>
@@ -321,7 +323,7 @@ export const Middle = () => {
                 <p
                   className="about-large-paragraph"
                   data-w-id="5a3b0609-f5ff-a598-1807-c46e47124ed7"
-                  style={{opacity:0}}
+                  style={{ opacity: 0 }}
                 >
                   Advising clients on technology strategy, digital
                   transformation, and IT infrastructure planning to help them
@@ -332,30 +334,58 @@ export const Middle = () => {
                     className="primary-button w-button"
                     data-w-id="5a3b0609-f5ff-a598-1807-c46e47124eed"
                     href="/about"
-                    style={{opacity:0}}
+                    style={{ opacity: 0 }}
                   >
                     Learn more
                   </a>
                   <div
                     className="video-popup-wrapper"
                     data-w-id="5a3b0609-f5ff-a598-1807-c46e47124eef"
-                    style={{opacity:0}}
+                    style={{ opacity: 0 }}
                   >
-                    <a className="video-popup w-inline-block w-lightbox" href="#">
+                    <a
+                      className="video-popup w-inline-block w-lightbox"
+                      href="#"
+                    >
                       <img
                         alt="Play Icon"
                         loading="lazy"
                         src="https://cdn.prod.website-files.com/6509176963fe4ef34ed8b7e1/650a596f0eca140b92e4d676_play.svg"
                       />
                       <script className="w-json" type="application/json">
-                        {obj1.items.url}
-                        {obj1.items.originalUrl}
-                        {obj1.items.width}
-                        {obj1.items.height}
-                        {obj1.items.thumbnailUrl}
-                        {obj1.items.html}
-                        {obj1.items.type}
-                        {obj1.items.group}
+                        <div>
+                          {items.map((item) => (
+                            <div key={item.url}>
+                              {item.type === "video" ? (
+                                <div>
+                                  {/* Video details */}
+                                  <div>
+                                    <a
+                                      href={item.url}
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                    >
+                                      {item.title || "Video Title"}{" "}
+                                      {/* Use title if available, otherwise fallback */}
+                                    </a>
+                                  </div>
+
+                                  <br />
+                                  <img
+                                    src={item.thumbnailUrl}
+                                    alt="Video Thumbnail"
+                                  />
+                                  <br />
+                                  {/* Additional details (optional) */}
+                                  {/* <p>Width: {item.width}</p>
+                                    <p>Height: {item.height}</p> */}
+                                </div>
+                              ) : (
+                                <p>Unsupported content type: {item.type}</p>
+                              )}
+                            </div>
+                          ))}
+                        </div>
                       </script>
                     </a>
                     <div className="bold-heading">How it works</div>
@@ -371,7 +401,7 @@ export const Middle = () => {
                     sizes="(max-width: 479px) 100vw, (max-width: 600px) 95vw, (max-width: 991px) 570px, (max-width: 1279px) 466.203125px, 570px"
                     src="https://cdn.prod.website-files.com/6509176963fe4ef34ed8b7e1/65112041b86986a5ca34cf40_About%20Image%202.jpg"
                     srcSet="https://assets-global.website-files.com/6509176963fe4ef34ed8b7e1/65112041b86986a5ca34cf40_About%20Image%202-p-500.jpg 500w, https://assets-global.website-files.com/6509176963fe4ef34ed8b7e1/65112041b86986a5ca34cf40_About%20Image%202.jpg 570w"
-                    style={{opacity:0}}
+                    style={{ opacity: 0 }}
                   />
                 </div>
               </div>
@@ -384,14 +414,14 @@ export const Middle = () => {
               <div
                 className="badge"
                 data-w-id="dcf4e5d5-8cd2-137c-840e-0fdab08366b3"
-                style={{opacity:0}}
+                style={{ opacity: 0 }}
               >
                 Our Services
               </div>
               <div
                 className="service-heading-container"
                 data-w-id="565d0631-c6a9-12bc-ea30-ade77d3cacb7"
-                style={{opacity:0}}
+                style={{ opacity: 0 }}
               >
                 <div className="service-heading-block">
                   <div className="section-heading-wrapper max-width-490px">
@@ -412,7 +442,7 @@ export const Middle = () => {
             <div
               className="service-slider-wrapper"
               data-w-id="a84cf8c3-ebe0-dcdd-6d41-4dd9a04debb9"
-              style={{opacity:0}}
+              style={{ opacity: 0 }}
             >
               <div
                 className="service-slider w-slider"
@@ -434,7 +464,10 @@ export const Middle = () => {
                         className="service-slider-card-wrapper w-dyn-items"
                         role="list"
                       >
-                        <div className="service-item-2 w-dyn-item" role="listitem">
+                        <div
+                          className="service-item-2 w-dyn-item"
+                          role="listitem"
+                        >
                           <div className="service-slider-card">
                             <a
                               className="service-thumbnail-wrapper w-inline-block"
@@ -463,10 +496,19 @@ export const Middle = () => {
                                     data-w-id="3595803d-095a-ac38-b16d-cb7c5761148c"
                                     href="/services/artificial-intelligence"
                                   >
-                                    <div className="detals-link-text">Details</div>
+                                    <div className="detals-link-text">
+                                      Details
+                                    </div>
                                     <div
                                       className="details-icon w-embed"
-                                      style={{transform:'translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)',transform:'translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)',transform:'transform:translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)'}}
+                                      style={{
+                                        transform:
+                                          "translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)",
+                                        transform:
+                                          "translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)",
+                                        transform:
+                                          "transform:translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)",
+                                      }}
                                     >
                                       <svg
                                         fill="none"
@@ -500,7 +542,10 @@ export const Middle = () => {
                         className="service-slider-card-wrapper w-dyn-items"
                         role="list"
                       >
-                        <div className="service-item-2 w-dyn-item" role="listitem">
+                        <div
+                          className="service-item-2 w-dyn-item"
+                          role="listitem"
+                        >
                           <div className="service-slider-card">
                             <a
                               className="service-thumbnail-wrapper w-inline-block"
@@ -529,10 +574,19 @@ export const Middle = () => {
                                     data-w-id="a686bc8d-7480-3a73-11e4-4921c2654f37"
                                     href="/services/cloud-solutions"
                                   >
-                                    <div className="detals-link-text">Details</div>
+                                    <div className="detals-link-text">
+                                      Details
+                                    </div>
                                     <div
                                       className="details-icon w-embed"
-                                      style={{transform:'translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)',transform:'translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)',transform:'transform:translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)'}}
+                                      style={{
+                                        transform:
+                                          "translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)",
+                                        transform:
+                                          "translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)",
+                                        transform:
+                                          "transform:translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)",
+                                      }}
                                     >
                                       <svg
                                         fill="none"
@@ -566,7 +620,10 @@ export const Middle = () => {
                         className="service-slider-card-wrapper w-dyn-items"
                         role="list"
                       >
-                        <div className="service-item-2 w-dyn-item" role="listitem">
+                        <div
+                          className="service-item-2 w-dyn-item"
+                          role="listitem"
+                        >
                           <div className="service-slider-card">
                             <a
                               className="service-thumbnail-wrapper w-inline-block"
@@ -595,10 +652,19 @@ export const Middle = () => {
                                     data-w-id="e1d952db-9615-b614-0e6f-250868372566"
                                     href="/services/data-analytics"
                                   >
-                                    <div className="detals-link-text">Details</div>
+                                    <div className="detals-link-text">
+                                      Details
+                                    </div>
                                     <div
                                       className="details-icon w-embed"
-                                      style={{transform:'translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)',transform:'translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)',transform:'transform:translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)'}}
+                                      style={{
+                                        transform:
+                                          "translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)",
+                                        transform:
+                                          "translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)",
+                                        transform:
+                                          "transform:translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)",
+                                      }}
                                     >
                                       <svg
                                         fill="none"
@@ -632,7 +698,10 @@ export const Middle = () => {
                         className="service-slider-card-wrapper w-dyn-items"
                         role="list"
                       >
-                        <div className="service-item-2 w-dyn-item" role="listitem">
+                        <div
+                          className="service-item-2 w-dyn-item"
+                          role="listitem"
+                        >
                           <div className="service-slider-card">
                             <a
                               className="service-thumbnail-wrapper w-inline-block"
@@ -661,10 +730,19 @@ export const Middle = () => {
                                     data-w-id="0015b731-46dd-ab86-0ec7-0e74b4e8b3b1"
                                     href="/services/cyber-security"
                                   >
-                                    <div className="detals-link-text">Details</div>
+                                    <div className="detals-link-text">
+                                      Details
+                                    </div>
                                     <div
                                       className="details-icon w-embed"
-                                      style={{transform:'translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)',transform:'translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)',transform:'transform:translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)'}}
+                                      style={{
+                                        transform:
+                                          "translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)",
+                                        transform:
+                                          "translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)",
+                                        transform:
+                                          "transform:translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)",
+                                      }}
                                     >
                                       <svg
                                         fill="none"
@@ -698,7 +776,10 @@ export const Middle = () => {
                         className="service-slider-card-wrapper w-dyn-items"
                         role="list"
                       >
-                        <div className="service-item-2 w-dyn-item" role="listitem">
+                        <div
+                          className="service-item-2 w-dyn-item"
+                          role="listitem"
+                        >
                           <div className="service-slider-card">
                             <a
                               className="service-thumbnail-wrapper w-inline-block"
@@ -727,10 +808,19 @@ export const Middle = () => {
                                     data-w-id="f857f89d-a596-9f4f-8fa8-8c5390ea9145"
                                     href="/services/software-development"
                                   >
-                                    <div className="detals-link-text">Details</div>
+                                    <div className="detals-link-text">
+                                      Details
+                                    </div>
                                     <div
                                       className="details-icon w-embed"
-                                      style={{transform:'translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)',transform:'translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)',transform:'transform:translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)'}}
+                                      style={{
+                                        transform:
+                                          "translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)",
+                                        transform:
+                                          "translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)",
+                                        transform:
+                                          "transform:translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)",
+                                      }}
                                     >
                                       <svg
                                         fill="none"
@@ -764,7 +854,10 @@ export const Middle = () => {
                         className="service-slider-card-wrapper w-dyn-items"
                         role="list"
                       >
-                        <div className="service-item-2 w-dyn-item" role="listitem">
+                        <div
+                          className="service-item-2 w-dyn-item"
+                          role="listitem"
+                        >
                           <div className="service-slider-card">
                             <a
                               className="service-thumbnail-wrapper w-inline-block"
@@ -793,10 +886,19 @@ export const Middle = () => {
                                     data-w-id="e5fa77c7-8faf-71af-676c-a60926ee9eb1"
                                     href="/services/database-security"
                                   >
-                                    <div className="detals-link-text">Details</div>
+                                    <div className="detals-link-text">
+                                      Details
+                                    </div>
                                     <div
                                       className="details-icon w-embed"
-                                      style={{transform:'translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)',transform:'translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)',transform:'transform:translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)'}}
+                                      style={{
+                                        transform:
+                                          "translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)",
+                                        transform:
+                                          "translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)",
+                                        transform:
+                                          "transform:translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)",
+                                      }}
                                     >
                                       <svg
                                         fill="none"
@@ -899,7 +1001,7 @@ export const Middle = () => {
                   data-w-id="16a284b2-3963-9639-6c7f-de98316f4584"
                   loading="lazy"
                   src="https://cdn.prod.website-files.com/6509176963fe4ef34ed8b7e1/650bad7162f5ee5958609e10_WCU%20Shape%20Image%201.svg"
-                  style={{opacity:0}}
+                  style={{ opacity: 0 }}
                 />
                 <img
                   alt="WCU Main Image"
@@ -907,18 +1009,32 @@ export const Middle = () => {
                   data-w-id="c49713ee-e2b0-b483-3c88-d9cd5fb4cd1f"
                   loading="lazy"
                   src="https://cdn.prod.website-files.com/6509176963fe4ef34ed8b7e1/650bb1f8dfef63f3f4b69749_WCU%20Main%20Image.jpg"
-                  style={{opacity:0}}
+                  style={{ opacity: 0 }}
                 />
                 <img
                   alt="WCU Shape 2"
                   className="wcu-shape-image-2"
                   loading="lazy"
                   src="https://cdn.prod.website-files.com/6509176963fe4ef34ed8b7e1/650bad711f9070b0a24a189a_WCU%20Shape%20Image%202.svg"
-                  style={{transform:'translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)',transform:'translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)',transform:'transform:translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)'}}
+                  style={{
+                    transform:
+                      "translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)",
+                    transform:
+                      "translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)",
+                    transform:
+                      "transform:translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)",
+                  }}
                 />
                 <div
                   className="wcu-image-badge"
-                  style={{transform:'translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)',transform:'translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)',transform:'transform:translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)'}}
+                  style={{
+                    transform:
+                      "translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)",
+                    transform:
+                      "translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)",
+                    transform:
+                      "transform:translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)",
+                  }}
                 >
                   <img
                     alt="Badge Icon"
@@ -926,7 +1042,9 @@ export const Middle = () => {
                     loading="lazy"
                     src="https://cdn.prod.website-files.com/6509176963fe4ef34ed8b7e1/650bafb04a7e9e890d24897b_Badge%20Icon.svg"
                   />
-                  <div className="wcu-badge-text">100% Customer Satisfaction</div>
+                  <div className="wcu-badge-text">
+                    100% Customer Satisfaction
+                  </div>
                 </div>
               </div>
               <div
@@ -936,7 +1054,7 @@ export const Middle = () => {
                 <div
                   className="badge"
                   data-w-id="d0c1f384-d59a-6278-44e4-18866145cf0f"
-                  style={{opacity:0}}
+                  style={{ opacity: 0 }}
                 >
                   Why choose us
                 </div>
@@ -944,7 +1062,7 @@ export const Middle = () => {
                   <h2
                     className="section-heading"
                     data-w-id="d0c1f384-d59a-6278-44e4-18866145cf13"
-                    style={{opacity:0}}
+                    style={{ opacity: 0 }}
                   >
                     <strong>Proven Expertise in Complex IT Solutions</strong>
                   </h2>
@@ -952,7 +1070,7 @@ export const Middle = () => {
                 <p
                   className="wcu-large-paragraph"
                   data-w-id="d0c1f384-d59a-6278-44e4-18866145cf15"
-                  style={{opacity:0}}
+                  style={{ opacity: 0 }}
                 >
                   With a track record of successfully tackling intricate IT
                   challenges, our seasoned team brings a wealth of experience to
@@ -963,7 +1081,7 @@ export const Middle = () => {
                   <div
                     className="accordion-body frist-item"
                     data-w-id="9a5ec983-6dd2-16fc-ebb5-c7926834c00e"
-                    style={{opacity:0}}
+                    style={{ opacity: 0 }}
                   >
                     <div className="accordion-link">
                       <div className="acoordion-heading">
@@ -995,7 +1113,7 @@ export const Middle = () => {
                   <div
                     className="accordion-body"
                     data-w-id="76bd5bb8-c12b-934f-e561-3a4f55dda6bc"
-                    style={{opacity:0}}
+                    style={{ opacity: 0 }}
                   >
                     <div className="accordion-link">
                       <div className="acoordion-heading">
@@ -1027,7 +1145,7 @@ export const Middle = () => {
                   <div
                     className="accordion-body last-item"
                     data-w-id="15104b41-0713-fced-475d-b810d722fa0f"
-                    style={{opacity:0}}
+                    style={{ opacity: 0 }}
                   >
                     <div className="accordion-link">
                       <div className="acoordion-heading">
@@ -1184,7 +1302,14 @@ export const Middle = () => {
                                         className="details-icon"
                                         loading="lazy"
                                         src="https://cdn.prod.website-files.com/6509176963fe4ef34ed8b7e1/650a921e19db76ab43a9247d_icon%20arrow.svg"
-                                        style={{transform:'translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)',transform:'translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)',transform:'transform:translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)'}}
+                                        style={{
+                                          transform:
+                                            "translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)",
+                                          transform:
+                                            "translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)",
+                                          transform:
+                                            "transform:translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)",
+                                        }}
                                       />
                                     </a>
                                   </div>
@@ -1247,7 +1372,14 @@ export const Middle = () => {
                                         className="details-icon"
                                         loading="lazy"
                                         src="https://cdn.prod.website-files.com/6509176963fe4ef34ed8b7e1/650a921e19db76ab43a9247d_icon%20arrow.svg"
-                                        style={{transform:'translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)',transform:'translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)',transform:'transform:translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)'}}
+                                        style={{
+                                          transform:
+                                            "translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)",
+                                          transform:
+                                            "translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)",
+                                          transform:
+                                            "transform:translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)",
+                                        }}
                                       />
                                     </a>
                                   </div>
@@ -1310,7 +1442,14 @@ export const Middle = () => {
                                         className="details-icon"
                                         loading="lazy"
                                         src="https://cdn.prod.website-files.com/6509176963fe4ef34ed8b7e1/650a921e19db76ab43a9247d_icon%20arrow.svg"
-                                        style={{transform:'translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)',transform:'translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)',transform:'transform:translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)'}}
+                                        style={{
+                                          transform:
+                                            "translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)",
+                                          transform:
+                                            "translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)",
+                                          transform:
+                                            "transform:translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)",
+                                        }}
                                       />
                                     </a>
                                   </div>
@@ -1377,7 +1516,14 @@ export const Middle = () => {
                                         className="details-icon"
                                         loading="lazy"
                                         src="https://cdn.prod.website-files.com/6509176963fe4ef34ed8b7e1/650a921e19db76ab43a9247d_icon%20arrow.svg"
-                                        style={{transform:'translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)',transform:'translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)',transform:'transform:translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)'}}
+                                        style={{
+                                          transform:
+                                            "translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)",
+                                          transform:
+                                            "translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)",
+                                          transform:
+                                            "transform:translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)",
+                                        }}
                                       />
                                     </a>
                                   </div>
@@ -1440,7 +1586,14 @@ export const Middle = () => {
                                         className="details-icon"
                                         loading="lazy"
                                         src="https://cdn.prod.website-files.com/6509176963fe4ef34ed8b7e1/650a921e19db76ab43a9247d_icon%20arrow.svg"
-                                        style={{transform:'translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)',transform:'translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)',transform:'transform:translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)'}}
+                                        style={{
+                                          transform:
+                                            "translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)",
+                                          transform:
+                                            "translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)",
+                                          transform:
+                                            "transform:translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)",
+                                        }}
                                       />
                                     </a>
                                   </div>
@@ -1503,7 +1656,14 @@ export const Middle = () => {
                                         className="details-icon"
                                         loading="lazy"
                                         src="https://cdn.prod.website-files.com/6509176963fe4ef34ed8b7e1/650a921e19db76ab43a9247d_icon%20arrow.svg"
-                                        style={{transform:'translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)',transform:'translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)',transform:'transform:translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)'}}
+                                        style={{
+                                          transform:
+                                            "translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)",
+                                          transform:
+                                            "translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)",
+                                          transform:
+                                            "transform:translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)",
+                                        }}
                                       />
                                     </a>
                                   </div>
@@ -1570,7 +1730,14 @@ export const Middle = () => {
                                         className="details-icon"
                                         loading="lazy"
                                         src="https://cdn.prod.website-files.com/6509176963fe4ef34ed8b7e1/650a921e19db76ab43a9247d_icon%20arrow.svg"
-                                        style={{transform:'translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)',transform:'translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)',transform:'transform:translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)'}}
+                                        style={{
+                                          transform:
+                                            "translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)",
+                                          transform:
+                                            "translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)",
+                                          transform:
+                                            "transform:translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)",
+                                        }}
                                       />
                                     </a>
                                   </div>
@@ -1633,7 +1800,14 @@ export const Middle = () => {
                                         className="details-icon"
                                         loading="lazy"
                                         src="https://cdn.prod.website-files.com/6509176963fe4ef34ed8b7e1/650a921e19db76ab43a9247d_icon%20arrow.svg"
-                                        style={{transform:'translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)',transform:'translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)',transform:'transform:translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)'}}
+                                        style={{
+                                          transform:
+                                            "translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)",
+                                          transform:
+                                            "translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)",
+                                          transform:
+                                            "transform:translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)",
+                                        }}
                                       />
                                     </a>
                                   </div>
@@ -1696,7 +1870,14 @@ export const Middle = () => {
                                         className="details-icon"
                                         loading="lazy"
                                         src="https://cdn.prod.website-files.com/6509176963fe4ef34ed8b7e1/650a921e19db76ab43a9247d_icon%20arrow.svg"
-                                        style={{transform:'translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)',transform:'translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)',transform:'transform:translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)'}}
+                                        style={{
+                                          transform:
+                                            "translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)",
+                                          transform:
+                                            "translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)",
+                                          transform:
+                                            "transform:translate3d(0, 0px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)",
+                                        }}
                                       />
                                     </a>
                                   </div>
@@ -1754,7 +1935,7 @@ export const Middle = () => {
                 <div
                   className="badge"
                   data-w-id="00d12535-c256-3e8a-c23a-468e9a7bd902"
-                  style={{opacity:0}}
+                  style={{ opacity: 0 }}
                 >
                   Our Projects
                 </div>
@@ -1762,7 +1943,7 @@ export const Middle = () => {
                   <h2
                     className="section-heading desktop-small-center"
                     data-w-id="00d12535-c256-3e8a-c23a-468e9a7bd904"
-                    style={{opacity:0}}
+                    style={{ opacity: 0 }}
                   >
                     Awesome works for our Clients
                   </h2>
@@ -1770,7 +1951,7 @@ export const Middle = () => {
                 <p
                   className="our-project-large-paragraph desktop-small-center"
                   data-w-id="00d12535-c256-3e8a-c23a-468e9a7bd906"
-                  style={{opacity:0}}
+                  style={{ opacity: 0 }}
                 >
                   From AI integration to Data analytics, explore a selection of
                   our diverse and impactful projects that shows our commitment
@@ -1780,7 +1961,7 @@ export const Middle = () => {
                   className="secondary-button w-button"
                   data-w-id="d420b08a-3bde-2838-d1e0-d72b16fe4947"
                   href="/our-projects"
-                  style={{opacity:0}}
+                  style={{ opacity: 0 }}
                 >
                   View all
                 </a>
@@ -1808,7 +1989,7 @@ export const Middle = () => {
               <div
                 className="badge"
                 data-w-id="7c8a7888-c150-f609-01b5-04563b622c0f"
-                style={{opacity:0}}
+                style={{ opacity: 0 }}
               >
                 Testimonials
               </div>
@@ -1816,7 +1997,7 @@ export const Middle = () => {
                 <h2
                   className="section-heading center"
                   data-w-id="8f11deae-10b4-62da-0b84-dbe957b4684f"
-                  style={{opacity:0}}
+                  style={{ opacity: 0 }}
                 >
                   Letâs check Our happy Clients review
                 </h2>
@@ -1824,7 +2005,7 @@ export const Middle = () => {
               <p
                 className="testimonial-large-paragraph center"
                 data-w-id="11cc4eb6-035d-0779-f168-6748a86f222f"
-                style={{opacity:0}}
+                style={{ opacity: 0 }}
               >
                 We're committed to delivering exceptional IT solutions that
                 drive success. Here are some of our client reviews for you to
@@ -1834,7 +2015,7 @@ export const Middle = () => {
             <div
               className="testimonial-slider-wrapper"
               data-w-id="d31e33aa-e303-dc94-a3b7-c7c0017e52dc"
-              style={{opacity:0}}
+              style={{ opacity: 0 }}
             >
               <div
                 className="testimonial-slider-2 w-slider"
@@ -1861,7 +2042,9 @@ export const Middle = () => {
                       </p>
                       <div className="quote-info-wrapper">
                         <div className="testimonial-info">
-                          <div className="testiomial-name">Lionel Rodriguez</div>
+                          <div className="testiomial-name">
+                            Lionel Rodriguez
+                          </div>
                           <div className="testiomial-designation">
                             CTO, Xova International
                           </div>
@@ -2107,12 +2290,12 @@ export const Middle = () => {
             <div
               className="blog-heading-wrapper"
               data-w-id="afefe2cc-c877-256e-4407-1065b724d543"
-              style={{opacity:0}}
+              style={{ opacity: 0 }}
             >
               <div
                 className="badge"
                 data-w-id="afefe2cc-c877-256e-4407-1065b724d544"
-                style={{opacity:0}}
+                style={{ opacity: 0 }}
               >
                 Our Blog
               </div>
@@ -2143,7 +2326,7 @@ export const Middle = () => {
                   className="blog-item w-dyn-item"
                   data-w-id="bb5b5687-7cb9-fa29-c3ec-ef2840d81fe5"
                   role="listitem"
-                  style={{opacity:0}}
+                  style={{ opacity: 0 }}
                 >
                   <div className="blog-card">
                     <div className="blog-card-upper">
@@ -2201,7 +2384,7 @@ export const Middle = () => {
                   className="blog-item w-dyn-item"
                   data-w-id="bb5b5687-7cb9-fa29-c3ec-ef2840d81fe5"
                   role="listitem"
-                  style={{opacity:0}}
+                  style={{ opacity: 0 }}
                 >
                   <div className="blog-card">
                     <div className="blog-card-upper">
@@ -2231,7 +2414,10 @@ export const Middle = () => {
                       <div className="blog-card-meta-wrapper">
                         <div className="blog-date">Oct 3, 2023</div>
                         <div className="blog-text">by</div>
-                        <a className="blog-card-author" href="/author/rozer-miller">
+                        <a
+                          className="blog-card-author"
+                          href="/author/rozer-miller"
+                        >
                           Rozer Miller
                         </a>
                       </div>
@@ -2255,7 +2441,7 @@ export const Middle = () => {
                   className="blog-item w-dyn-item"
                   data-w-id="bb5b5687-7cb9-fa29-c3ec-ef2840d81fe5"
                   role="listitem"
-                  style={{opacity:0}}
+                  style={{ opacity: 0 }}
                 >
                   <div className="blog-card">
                     <div className="blog-card-upper">
@@ -2285,7 +2471,10 @@ export const Middle = () => {
                       <div className="blog-card-meta-wrapper">
                         <div className="blog-date">Oct 3, 2023</div>
                         <div className="blog-text">by</div>
-                        <a className="blog-card-author" href="/author/david-turner">
+                        <a
+                          className="blog-card-author"
+                          href="/author/david-turner"
+                        >
                           David Turner
                         </a>
                       </div>
@@ -2392,6 +2581,6 @@ export const Middle = () => {
           </div>
         </section>
       </main>
-    </div>
+    
   );
 }
